@@ -1,0 +1,38 @@
+<html>
+    <head>
+      <title>Ceroc Registration and Management System</title>
+    </head>
+    <body>
+        <div>Ceroc:
+        <a href="{{ url_for('index') }}">Home</a>
+<!--        <a href="{{ url_for('person') }}">Persons</a>
+        <a href="{{ url_for('event') }}">Events</a>
+        <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+-->        
+        </div>
+        <hr>
+<!--        
+         {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+-->        
+    </body>
+</html>
+
+<!---
+    Need:
+        Add Person
+        Modify Person
+        Add Event
+        Modify Event
+        Management
+        
+ --->

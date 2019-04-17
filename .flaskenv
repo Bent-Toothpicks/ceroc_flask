@@ -1,0 +1,3 @@
+FLASK_APP=ceroc.py
+FLASK_DEBUG=True
+

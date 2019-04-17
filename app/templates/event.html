@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+{% if title %} {{ title }} {% endif %}
+{% endblock %}
+
+<h1>{{ pagetitle }} </h1>
+
+{% block appcontent %}
+
+
+<div class="container">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        {%- if form %}
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% if field.errors %}
+            <div class="row">
+            <div class="has-error"> {{ field.label }} {{ field(size=80, class_='form-control') }}</div>
+            <span
+                style="color: red;">{% for error in field.errors %}{{ error }}{% if not loop.last %}<br />{% endif %}{% endfor %}</span>
+            </div>
+            {% elif field.label.text == 'Event type' or field.label.text == 'Bookings required?' %} 
+                {{ field.label }} {{ field(class_='form-control') }}
+            {% elif field.label.text == 'Add Event'  %}
+                {{ field(class_='btn btn-primary') }}
+            {% else %}
+            {{ field.label }} {{ field(size=80, class_='form-control') }}
+            {% endif %}
+            {% endfor %}
+    </div>
+    </form>
+    {%- endif %}
+</div>
+
+{% if table %}
+{{ table }}
+{% endif %}
+</div>
+</div>
+{% endblock %}

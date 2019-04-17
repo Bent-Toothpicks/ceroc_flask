@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<input type="text" name="country" id="autocomplete" class="form-control" placeholder="Enter Country name" />
+ 
+Jquery Plugin to achieve Autocomplete from DevBridge
+ 
+<script type="text/javascript" src="src/jquery.autocomplete.js"></script>
+<script >
+$("#autocomplete").autocomplete({
+ 
+ //lookup: countries,
+
+ serviceUrl:'autocomplete', //tell the script where to send requests
+ type:'POST',
+  width: 450, //set width
+
+//callback just to show it's working
+
+ onSelect: function (suggestion) {
+
+ $('#selection').html('You selected: ' + suggestion.value + ', ' + suggestion.data);
+
+ },
+
+ showNoSuggestionNotice: true,
+
+ noSuggestionNotice: 'Sorry, no matching results',
+
+});
+</script>
+
+
+{% endblock %}

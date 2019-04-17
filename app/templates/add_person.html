@@ -1,0 +1,37 @@
+{%- extends "base.html" %}
+{%- import "bootstrap/wtf.html" as wtf %}
+
+{%- block title %}
+{%- if title %} {{ title }} {% endif %}
+{%- endblock %}
+
+{% block appcontent %}
+
+<div class="container">
+    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h1>{{ pagetitle }} </h1>
+
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% if field.errors %}
+            <div class=row>
+            <div class="has-error"> {{ field.label }} {{ field(size=80, class_='form-control') }}</div>
+            <span
+                style="color: red;">{% for error in field.errors %}{{ error }}{% if not loop.last %}<br />{% endif %}{% endfor %}</span>
+            </div>
+            {% elif field.label.text == 'Gender'  %} 
+                {{ field.label }} {{ field(class_='form-control') }}
+            {% elif field.label.text == 'Add Person'  %}
+                {{ field(class_='btn btn-primary row') }}
+            {% elif field.widget.input_type == 'checkbox' %}
+                {{ field.label }} {{ field(class_='big-checkbox') }}
+            {% else %}
+                {{ field.label }} {{ field(size=80, class_='form-control') }}
+            {% endif %}
+            {% endfor %}
+    </div>
+    </form>
+</div>
+
+{% endblock %}

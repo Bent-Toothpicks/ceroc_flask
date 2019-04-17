@@ -1,0 +1,17 @@
+ .big-checkbox {width: 30px; height: 30px;}
+
+ .scroll-thead{
+    width: 100%;
+    display: inline-table;
+}
+
+.scroll-tbody-y
+{
+    display: block;
+    overflow-y: scroll;
+}
+
+.table-body{
+    max-height: 300px;
+    overflow-y: scroll;
+}

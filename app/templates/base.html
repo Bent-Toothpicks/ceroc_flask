@@ -1,0 +1,61 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- endblock metas %}
+
+    {%- block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery-ui.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='overrides.css') }}">
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+    {% block navbar %}
+    {%- include "navbar.html" %}
+    {%- endblock navbar %}
+    {% block content -%}
+    
+    <div class="container">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+        
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+    {%- endblock content %}
+    {% block appcontent -%}
+    {%- endblock appcontent %}
+
+    {% block scripts %}
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery-3.4.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script> 
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery.dataTables.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='ceroc.js') }}"></script>
+    {% endblock scripts %}
+
+    {%- endblock body %}
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
+
+

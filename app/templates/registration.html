@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block appcontent %}
+
+<div class="container">
+    <div class=" row">
+        <div class="col-lg-6">
+            <form action="" method="">
+            {% if evtform %}{{ evtform.event(class_='form-control') }}{% endif %}
+        </form>
+        </div>
+        <h1 class="navbar">Ceroc Attendance Management</h1>
+
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% if field.errors %}
+            <div class="row">
+                <div class="has-error">
+                    {{ field.label }} {{ field(size=80, class_='form-control') }}</div>
+                <span style="color: red;">
+                    {% for error in field.errors %}{{ error }}{% if not loop.last %}<br />{% endif %}{% endfor %}</span>
+            </div>
+            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-8">.col-sm-8</div>
+            {% elif field.label.text == 'Select Entry Method' or field.label.text == 'Enter Payment Method' %}
+            {{ field.label }} {{ field(class_='form-control') }}
+            {% elif field.label.text == 'Register this Person'  %}
+            {{ field(class_='btn btn-primary') }}
+            {% else %}
+            {{ field.label }} {{ field(size=80, class_='form-control') }}
+            {% endif %}
+            {% endfor %}
+    </div>
+    </form>
+
+</div>
+
+
+{{ table }}
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light primary-color">
+    <a class="navbar-brand" href="#"></a>
+    <img src="{{ url_for('static', filename='cerocclub-brisbane-logo.jpg') }}" width="238" height="74" border="0"
+        alt="Ceroc Club Logo" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('registration') }}">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('add_person') }}">Manage Persons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('add_event') }}">Manage Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('add_salestype') }}">New Sales Type</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dummyroute') }}">Reporting - Disabled</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
